@@ -26,10 +26,12 @@
         @include styles.commonFontStyle600(
           $fontColor: styles.$brand-sparkal
         );
+        cursor: pointer;
       }
       img {
         height: 20px;
         width: 20px;
+        cursor: pointer;
       }
     }
     #material-filter-header {

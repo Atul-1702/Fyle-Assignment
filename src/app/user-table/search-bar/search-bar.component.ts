@@ -33,9 +33,9 @@ export class SearchBarComponent{
             this.debounced(searchInput.value);
       },500);
   }
-  onSearchIconClicked(searchVal:string)
+  onSearchIconClicked(value:string)
   {
-    this.onSearchButtonClicked.emit(searchVal);
+    this.onSearchButtonClicked.emit(value);
     this.userList=[];
   }
   filterWindowOpen()

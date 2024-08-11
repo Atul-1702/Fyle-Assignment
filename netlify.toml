@@ -1,8 +1,9 @@
-[build]
-  command = "ng build --configuration production"
-  publish = "dist/FYLE-ASSIGNMENT"
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+build:
+command: ng build --configuration production
+commandOrigin: config
+publish: /opt/build/repo/dist/FYLE-ASSIGNMENT
+publishOrigin: config
+redirects:   - from: /*
+status: 200
+to: /index.html
+redirectsOrigin: config

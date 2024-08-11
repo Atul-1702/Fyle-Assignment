@@ -1,0 +1,13 @@
+<section id="search-filter-container">
+    <div id="search-container" role="group" aria-label="search-by-name">
+    <input #searchInput (blur)="userList=[]" (input)="onSearchKeyEntered(searchInput)" type="text" placeholder="search ...">
+    <fa-icon (click)="onSearchIconClicked(searchInput.value)" id="magnifying-glass" [icon]="mangnifyingGlass"></fa-icon>
+   </div>
+   <div id="button">
+       <button (click)="filterWindowOpen()"><span>Filter</span><fa-icon [icon]="filter"></fa-icon></button>
+   </div>
+   <ul *ngIf="userList.length!=0">
+     <li  *ngFor="let user of userList" (mousedown)="onSearchIconClicked(user.name)">{{user.name}}</li>
+   </ul>
+</section>
+<hr role="separator">

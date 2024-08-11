@@ -1,0 +1,71 @@
+<fieldset>
+  <form #formData="ngForm" (ngSubmit)="onFormDataSubmitted(formData)">
+    <div id="form-heading" role="heading">
+      <h3>Add New User</h3>
+      <fa-icon (click)="onCloseButtonClicked()" [icon]="closeIcon"></fa-icon>
+    </div>
+    <div
+      id="user-name-container"
+      role="group"
+      aria-label="user-name-input-field"
+    >
+      <label for="user-name">User Name*</label>
+      <input required pattern="^[a-zA-Z ]+$" ngModel name="userName" type="text" id="user-name" />
+    </div>
+    <div *ngIf="formData.controls?.['userName']?.touched &&formData.controls?.['userName']?.errors?.['required']" class="error-msg">User name is required</div>
+    <div *ngIf="formData.controls?.['userName']?.touched &&formData.controls?.['userName']?.errors?.['pattern']" class="error-msg">User name should contain only alphabets</div>
+    <div
+      id="workout-types-container"
+      role="group"
+      aria-label="workout-types-options"
+    >
+      <label *ngIf="userWorkOutTypes.length != 0" for="workout-buttons"
+        >Selected Workout Types</label
+      >
+      <div *ngIf="userWorkOutTypes.length != 0" id="workout-buttons">
+        <button *ngFor="let workout of userWorkOutTypes">
+          <span>{{ workout.type }}</span
+          ><fa-icon
+            (click)="onRemoveSelectedWorkout(workout.type)"
+            [icon]="closeIcon"
+          ></fa-icon>
+        </button>
+      </div>
+      <div id="workout-types-workout-minutes" role="group">
+        <div id="workout-types">
+          <label for="workout-types-options">Workout Types*</label>
+          <select
+            #selectOptions
+            name="types"
+            role="listbox"
+            id="workout-types-options"
+            (change)="onWorkoutTypeSelected()"
+          >
+            <option role="listitem" value="">Select Workout Types</option>
+            <option
+              role="listitem"
+              *ngFor="let workout of workTypes"
+              [value]="workout"
+            >
+              {{ workout }}
+            </option>
+          </select>
+        </div>
+        <div id="workout-minutes-container" role="group">
+          <label for="workout-minutes">Workout Minutes*</label>
+          <input name="minutes" disabled #workoutMinutes type="text" id="workout-minutes" (input)="onMinuteEntered()"/>
+        </div>
+      
+        <button
+          [disabled]="selectOptions.value==''||workoutMinutes.value==''"
+          (click)="onAddWorkoutButtonClicked()"
+          id="add-workout-button"
+          type="button"
+        >
+          Add Workout
+        </button>
+      </div>
+    </div>
+    <button [disabled]="formData.invalid||userWorkOutTypes.length==0" id="submit-button" type="submit">Add New User</button>
+  </form>
+</fieldset>

@@ -1,0 +1,112 @@
+@use '../../styles';
+
+
+main 
+{
+  @include styles.common-padding-home-page;
+ 
+#add-new-user-button 
+{
+   @extend .commonButtonStyleBgBlack;
+   @include styles.commonFontStyle600($fontColor: styles.$base-white);
+   @include styles.custom-padding(18px,24px);
+   width: 250px;
+   position: absolute;
+   top:150px;
+   left: 50%;
+   transform: translateX(-50%);
+   z-index: 0;
+}
+#table-container
+{
+  
+   background: rgb(8, 8, 10);
+
+   table 
+   {
+    border-collapse: collapse;
+    width: 100%;
+    @include styles.margin-y(24px,24px);
+     @include styles.custom-padding(20px,16px);
+     tr,td,th
+     {
+        border:1px solid rgba(255, 255, 255);
+        text-align: center;
+     }
+     td,th 
+     {
+        width:25%;
+        @include styles.padding-y(16px,16px);
+     }
+     td 
+     {
+        @include styles.commonFontStyle400($fontColor:rgba(255, 255, 255, 0.70),$fontSize:15px);
+
+     }
+     th 
+     {
+        @include styles.commonFontStyle600($fontColor:#fff,$fontSize:19px);
+     }
+   }
+
+}
+
+#tag-buttons 
+{
+   
+   button 
+   {
+     margin-right: 4px;
+     display: inline-block;
+     @extend .commonButtonStyleBgGray;
+     @include styles.commonFontStyle600($fontColor:styles.$primary-gray);
+     fa-icon 
+     {
+       font-size: 12px;
+       margin-top: 3px;
+       margin-left: 4px;
+     }
+   }
+}
+#pagination
+{
+   @include styles.custom-margin(0px,19%);
+   display: flex;
+   justify-content: center;
+   gap:8px;
+   align-items: center;
+   button 
+   {
+      @extend .commonButtonStyleBgGray;
+      @include styles.custom-padding(8px,8px);
+      border-radius: 5px;
+   }
+   select 
+   {
+       width:50px;
+   }
+}
+hr {
+   height:4px;
+   border-radius: 2px;
+   background: linear-gradient(
+     90deg,
+     #f51102 0%,
+     #a4675a 32.81%,
+     #9766ff 66%,
+     #ff5bb4 95.5%
+   );
+   @include styles.custom-margin(24px,0);
+ }
+ h2 
+ {
+   text-align: center;
+   color:#ff5bb4;
+ }
+}
+#intro-image 
+{
+    width:100%;
+    height:600px ;
+   
+}

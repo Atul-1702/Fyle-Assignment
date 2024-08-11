@@ -1,0 +1,39 @@
+
+  <!-- Filter System  -->
+
+  <section id="material-filter-system" >
+    <div id="filter-cancel">
+      <span (click)="onFilterWindowCancelButtonClicked()" class="toggle-filter-window" role="button">Close</span>
+      <fa-icon (click)="onFilterWindowCancelButtonClicked()" [style.color]="'red'" [icon]="closeIcon"></fa-icon>
+    </div>
+    <div id="material-filter-header">
+      <h3 role="heading" id="filter-heading">Filter</h3>
+      <p aria-labelledby="filter-heading" role="contentinfo">
+        Tailored 3D printing solutions to meet specific client needs
+      </p>
+    </div>
+    <hr role="separator">
+
+
+    <!-- Technology Filter -->
+
+
+    <fieldset role="group" id="technology" class="common-filter">
+      <button class="selected-button">
+        <span>Workouts</span
+        >
+        <fa-icon [icon]="caretUp"></fa-icon>
+      </button>
+      <div role="menu" class="menu">
+      <div *ngFor="let item of filterOptions" role="menuitemcheckbox" class="menuitemcheckbox">
+        <input class="checkbox" [value]="item" type="checkbox" [id]="item"/>
+        <label [for]="item">{{item}}</label>
+      </div>
+    </div>
+    </fieldset>
+
+      <div id="material-filter-button" aria-label="filter-buttons">
+           <button (click)="onApplyFilterButtonClicked()" id="apply-button">Apply</button>
+           <button (click)="onResetAllButtonClicked()" id="reset-all-button">Reset All</button>
+      </div>
+  </section>

@@ -1,0 +1,68 @@
+@use "../../../styles";
+
+#search-filter-container {
+  
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  #search-container {
+    position: relative;
+    input {
+      @extend .common-input-field;
+      @media (width<576px)
+      {
+        width:220px;
+      }
+    }
+    #magnifying-glass {
+      position: absolute;
+      top: 13px;
+      right: 15px;
+    }
+  }
+  #button {
+    button {
+      @extend .commonButtonStyleBgRed;
+      @include styles.commonFontStyle600;
+      @include styles.custom-padding(12px, 20px);
+    }
+  }
+  ul 
+{
+  @include styles.custom-padding;
+  @include styles.custom-margin;
+  list-style: none;
+  position: absolute;
+  top: 50px;
+  @extend .common-input-field;
+  border-radius: 10px !important;
+  width:320px !important;
+  li 
+  {
+    
+    @include styles.custom-padding(12px,16px);
+    background-color: whitesmoke;
+    border-bottom: 1px solid gainsboro;
+    cursor: pointer;
+  }
+  li:hover 
+  {
+    color:darkblue;
+    font-weight: bold;
+  } 
+}
+}
+hr {
+  height:4px;
+  border-radius: 2px;
+  background: linear-gradient(
+    90deg,
+    #f51102 0%,
+    #a4675a 32.81%,
+    #9766ff 66%,
+    #ff5bb4 95.5%
+  );
+  @include styles.custom-margin(24px,0);
+}

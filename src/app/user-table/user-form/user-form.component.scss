@@ -1,0 +1,112 @@
+@use "../../../styles";
+
+button:disabled {
+  opacity: 0.5;
+}
+
+fieldset {
+  width: 100%;
+  border: none;
+  form {
+    @include styles.custom-padding(24px, 24px);
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid rgb(186, 188, 189);
+    background-color: white;
+    border-radius: 20px;
+    width: 35%;
+    z-index: 1;
+    @media (width<992px) {
+      width: 60%;
+    }
+    @media (width<768px) {
+      width: 65%;
+    }
+    @media (width<576px) {
+      width: 95%;
+    }
+    #form-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      @include styles.margin-x(8px, 24px);
+      margin-bottom: 24px;
+      h3 {
+        @include styles.custom-margin;
+        @include styles.commonFontStyle600($fontColor: orange, $fontSize: 24px);
+      }
+      fa-icon {
+        color: red;
+        font-size: larger;
+      }
+    }
+    label {
+      display: block;
+      @include styles.commonFontStyle400(
+        $fontColor: styles.$primary-base-black
+      );
+      @include styles.margin-y(20px, 8px);
+      margin-left: 10px;
+    }
+    input,
+    #workout-buttons {
+      @extend .common-input-field;
+      width: 90%;
+    }
+    #workout-types-container {
+      button {
+        margin-right: 4px;
+        display: inline-block;
+        @extend .commonButtonStyleBgGray;
+        @include styles.commonFontStyle600($fontColor: styles.$primary-gray);
+        fa-icon {
+          font-size: 12px;
+          margin-top: 3px;
+          margin-left: 4px;
+        }
+      }
+    }
+    #workout-types-workout-minutes {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      #add-workout-button {
+        @extend .commonButtonStyleBgBlack;
+        @include styles.commonFontStyle600;
+        @include styles.custom-padding(12px, 16px);
+      }
+      #workout-types {
+        flex: 0 0 45%;
+        select {
+          @extend .common-input-field;
+          height: 41.6px;
+          width: 100%;
+        }
+      }
+      #workout-minutes-container {
+        flex: 0 0 45%;
+      }
+    }
+    #submit-button {
+      @extend .common-input-field;
+      width: 95%;
+      margin-top: 16px;
+      @extend .commonButtonStyleBgRed;
+      @include styles.commonFontStyle600;
+    }
+  }
+}
+
+.ng-touched.ng-invalid {
+  border: 1px solid red !important;
+}
+.error-msg {
+  @extend .common-input-field;
+  width: 90%;
+  background-color: red;
+  margin-top: 8px;
+  color: white;
+  font-weight: bold;
+}

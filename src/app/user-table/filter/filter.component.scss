@@ -1,0 +1,139 @@
+/* Material Filter System */
+@use '../../../styles';
+
+#material-filter-system {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 350px;
+    height:100vh;
+    overflow-y: scroll;
+    @include styles.custom-padding(24px, 48px);
+    background: styles.$light-white;
+    @media (width<768px)
+    {
+      width: 100%;
+      @include styles.custom-padding;
+      @include styles.padding-y(24px);
+      @include styles.padding-x(8px);
+    }
+    #filter-cancel {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 8px;
+      span {
+        @include styles.commonFontStyle600(
+          $fontColor: styles.$brand-sparkal
+        );
+      }
+      img {
+        height: 20px;
+        width: 20px;
+      }
+    }
+    #material-filter-header {
+      h3 {
+        @include styles.margin-y(24px, 8px);
+        @include styles.commonFontStyle600(
+          $fontColor: styles.$primary-base-black,
+          $fontSize: 24px
+        );
+      }
+      p {
+        @include styles.commonFontStyle400(
+          $fontColor: var(--Secondary-400, #596780),
+          $fontSize: 16px
+        );
+        @include styles.custom-margin;
+      }
+    }
+    hr{
+      height: 1px ;
+      background-color: styles.$light-light-d-2;
+      @include styles.margin-y(24px, 24px);
+    }
+    fieldset {
+      border: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      @include styles.custom-padding;
+      button {
+        width: 100%;
+        @extend .commonButtonStyleBgWhite;
+        @include styles.custom-padding(14px, 16px);
+        justify-content: space-between;
+        border: none;
+      }
+      .selected-button {
+        @extend .commonButtonStyleBgRed;
+        color:styles.$light-white;
+        justify-content: space-between;
+      }
+      .menu {
+        // display: flex;
+        // flex-direction: column;
+        // gap:5px;
+        div {
+          margin-left: 5px;
+          display: flex;
+          gap: 4px;
+          margin-bottom: 5px;
+          input {
+            height: 13px;
+            width: 13px;
+          }
+          input[type="checkbox"]:checked {
+            position: relative;
+            z-index: 2;
+          }
+          input[type="checkbox"]:checked::before {
+            content: "\2713";
+            position: absolute;
+            font-size: 10px;
+            font-weight: bold;
+            color:white;
+            text-align: center;
+            top: 0;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            background:styles.$brand-sparkal;
+            z-index: 1;
+          }
+          label {
+            @include styles.commonFontStyle400(
+              $fontSize: 16px,
+              $fontColor:styles.$primary-base-black
+            );
+          }
+        }
+      }
+    }
+    #material-filter-button {
+      display: flex;
+      gap: 16px;
+      margin-top: 32px;
+      #apply-button {
+        width: 45%;
+        @include styles.custom-padding(
+          var(--font-line-height-s12, 12px),
+          var(--font-line-height-s16, 24px)
+        );
+        @extend .commonButtonStyleBgRed;
+        color:styles.$light-white;
+      }
+      #reset-all-button {
+        width: 45%;
+        @include styles.custom-padding(
+          var(--font-line-height-s12, 12px),
+          var(--font-line-height-s16, 24px)
+        );
+        @extend .commonButtonStyleBgWhite;
+          border: 1px solid styles.$brand-sparkal;
+          color: styles.$brand-sparkal;
+      }
+    }
+  }
+  

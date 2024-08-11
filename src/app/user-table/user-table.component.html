@@ -1,0 +1,68 @@
+
+<img id="intro-image" src="../../assets/sports-and-fitness.jpg" alt="sports-and-fitness-theme">
+<main>
+   
+   <!-- User Form Component -->
+   
+   <app-user-form *ngIf="userFormWindowStatus" (onUserSubmitedForm)="onNewUserCreated($event,tableContainer)" (onFormCloseButtonClicked)="userFormWindowStatus=$event"></app-user-form>
+
+   <!-- Fitness Images -->
+  
+    <!-- create new user button -->
+    
+    <button (click)="onAddUserButtonClicked()" id="add-new-user-button">Add New User</button>
+
+    <!-- app search bar component -->
+
+    <app-search-bar (onFilterWindowOpen)="filterWindowToggle=$event"  (onSearchButtonClicked)="onSearchValueGet($event)"></app-search-bar>
+
+    <!--  Filter System -->
+      <app-filter [applyFilter]="filterTags" *ngIf="filterWindowToggle" (onApplyfilter)="applyFilterOptions($event)" (filterWindowClose)="filterWindowToggle=$event"></app-filter>
+    
+    <div id="tag-buttons">
+       <button *ngFor="let tag of filterTags"><span>{{tag}}</span><fa-icon (click)="onTagRemoved(tag)" [icon]="removeIcon"></fa-icon></button>
+       <button (click)="setListIntialState()"><span>reset</span><fa-icon [icon]="rotateBack"></fa-icon></button>
+    </div>
+    <!-- table view -->
+     <div #tableContainer id="table-container">
+    <table>
+        <!-- Table Heading -->
+        <thead>
+            <tr>
+               <th>Name</th>
+               <th>Workouts</th>
+               <th>Number of Workouts</th>
+               <th>Total Workout Minutes</th>
+            </tr>
+        </thead>
+
+        <!-- Table Body -->
+        <tbody>
+             <tr *ngFor="let user of userList|slice:(pageNoSelected)*(itemsPerPage):(pageNoSelected+1)*(itemsPerPage)">
+                <td>{{user.name}}</td>
+                <td>{{getAllWorkOutsByUser(user.workouts)}}</td>
+                <td>{{user.workouts.length}}</td>
+                <td>{{getTotalWorkOutMinutesByUser(user.workouts)}}</td>
+
+             </tr>
+        </tbody>
+    </table>
+</div>
+    <div id="pagination" role="group">
+        <button><span>Previous</span></button>
+        <button *ngFor="let page of userList|slice:0:getTotalNumberOfPages() let i=index" (click)="pageNoSelected=i" >{{i+1}}</button>
+        <button><span>Next</span></button>
+        <label for="">Items per page:</label>
+        <select #itemsPage name="items-per-page" (change)="onItemsPerPageChange(itemsPage.value)" id="items-per-page">
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+        </select>
+    </div>
+
+    <hr>
+    <h2 >Data Visulazation Through Graph</h2>
+    <hr>
+    <app-graph></app-graph>
+</main>

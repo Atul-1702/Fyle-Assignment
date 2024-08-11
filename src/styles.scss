@@ -1,1 +1,126 @@
 /* You can add global styles to this file, and also import other style files */
+/* Creating Variables */
+$light-light-d-2: var(--light-light-d-2, #d3d6e0);
+$brand-sparkal: var(--Brand-color-Sparkal-color, #fb5650);
+$base-white: var(--Primary-Base-White, var(--Primary-Base-White, #fff));
+$primary-base-black: var(--Primary-Base-Black, var(--Primary-Base-Black, #000));
+$primary-gray: var(--Primary-Gray-600, var(--Primary-Gray-600, #4B5563));
+$light-white:var(--light-white, #fff);
+/* mixins for margins*/
+
+@mixin custom-margin($top: 0px, $right: 0px) {
+  margin: $top $right;
+}
+@mixin margin-y($top: 0px, $bottom: 0px) {
+  margin-top: $top;
+  margin-bottom: $bottom;
+}
+@mixin margin-x($left: 0px, $right: 0px) {
+  margin-left: $left;
+  margin-right: $right;
+}
+
+/* mixins for padding*/
+
+@mixin custom-padding($top: 0px, $right: 0px) {
+  padding: $top $right;
+}
+@mixin padding-y($top: 0px, $bottom: 0px) {
+  padding-top: $top;
+  padding-bottom: $bottom;
+}
+@mixin padding-x($left: 0px, $right: 0px) {
+  padding-left: $left;
+  padding-right: $right;
+}
+/* mixins for fonts */
+@mixin commonFontStyle600($fontColor: $base-white, $fontSize: 16px) {
+  color: $fontColor;
+  font-family: "SF Pro Text";
+  font-size: $fontSize;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 125%;
+}
+@mixin commonFontStyle400($fontColor: $base-white, $fontSize: 14px) {
+  color: $fontColor;
+  font-family: "SF Pro Text";
+  font-size: $fontSize;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 125%;
+}
+
+/* common class for input field */
+.common-input-field {
+  @include custom-padding(12px, 16px);
+  border-radius: 1000px;
+  border: 1px solid $light-light-d-2;
+  width: 300px;
+}
+.commonButtonStyleBgRed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 1000px;
+  background: $brand-sparkal;
+  border: none;
+}
+.commonButtonStyleBgBlack {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 1000px;
+  background: rgb(28, 28, 36);
+  border: none;
+}
+.commonButtonStyleBgWhite {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 1000px;
+  background: $light-white;
+  border: none;
+}
+.commonButtonStyleBgGray {
+  display: flex;
+  padding: 4px 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: 100px;
+  border: 1px solid var(--Primary-Gray-400, #9ca3af);
+  background: var(--light-light, #f1f2f5);
+}
+
+@mixin common-padding-home-page {
+  @media (width>1400px) {
+    @include margin-x(19%, 19%);
+    //min-width: 1184px;
+  }
+  @media (1200px<=width<1400px) {
+    @include margin-x(14%, 14%);
+    //min-width: 1184px;
+  }
+  @media (992px<=width<1200px) {
+    @include margin-x(19%, 19%);
+  }
+  @media (576px<=width<992px) {
+    @include margin-x(10%, 10%);
+  }
+  @media (576px>width) {
+    @include margin-x(2.2%, 2.2%);
+  }
+}
+
+body 
+{
+  @include custom-margin;
+}
+button 
+{
+  cursor: pointer;
+}

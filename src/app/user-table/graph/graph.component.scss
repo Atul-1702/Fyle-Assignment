@@ -1,0 +1,38 @@
+@use '../../../styles';
+
+
+#graph-representation
+{
+ 
+     display: flex;
+     background-color: rgb(244, 244, 244);
+     padding-top: 30px;
+     justify-content: space-between;
+     ul 
+     {
+       @include styles.custom-padding;
+       @include styles.custom-margin;
+       list-style: none;
+       li 
+       {
+         padding: 12px;
+         width:150px;
+         border-bottom: 2px solid rgb(233, 233, 233);
+         @include styles.commonFontStyle600($fontColor:rgb(89, 89, 89),$fontSize:20px);
+         cursor: pointer;
+       }
+       li:hover 
+       {
+         color:darkblue;
+       }
+     }
+     
+}
+@media (width<768px)
+{
+  #graph-representation
+  {
+    flex-direction: column;
+    align-items: center;
+  } 
+}

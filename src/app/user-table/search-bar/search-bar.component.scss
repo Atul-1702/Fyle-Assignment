@@ -39,6 +39,10 @@
   @extend .common-input-field;
   border-radius: 10px !important;
   width:320px !important;
+  @media (width<576px)
+  {
+    width: 200px !important;;
+  }
   li 
   {
     

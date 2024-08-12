@@ -75,7 +75,7 @@ export class GraphComponent implements OnInit,AfterViewInit {
                 boxHeight:20,
                 font:{'weight':'bold'}    
               },
-              title:{'text':'1 Unit=10','display':true,'color':'orange','font':{'size':12,weight:'bold'}}
+              title:{'text':'1 Unit = 10 Minutes','display':true,'color':'orange','font':{'size':12,weight:'bold'}}
           },
         },
         animations:{

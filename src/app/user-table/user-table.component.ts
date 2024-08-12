@@ -2,7 +2,7 @@ import { Component,ElementRef,inject, OnInit } from '@angular/core';
 import { UserInfoService } from '../services/user-info.service';
 import { User } from '../models/user-info.model';
 import { faXmark,faArrowRotateBack } from '@fortawesome/free-solid-svg-icons';
-
+import { faBackward,faForward } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-user-table',
@@ -19,6 +19,8 @@ export class UserTableComponent implements OnInit{
   rotateBack=faArrowRotateBack;
   itemsPerPage:number=5;
   pageNoSelected=0;
+  prevIcon=faBackward;
+  nextIcon=faForward;
   ngOnInit()
   {
     

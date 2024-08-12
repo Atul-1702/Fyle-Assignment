@@ -1,6 +1,24 @@
 @use '../../../styles';
 
-
+#canvas-container 
+     {
+       canvas 
+       {
+         width: 530px;
+         @media (width<1200px)
+         {
+           width:400px;
+         }
+         @media (width<992px)
+         {
+          width:350px;
+         }
+         @media (width<576px)
+         {
+           width:300px ;
+         }
+       }
+     }
 #graph-representation
 {
  
@@ -10,9 +28,12 @@
      gap:64px;
      @media (width<1200px)
      {
-      justify-content: space-between;
+        gap:48px;
      }
-    
+     @media (width<768px)
+     {
+        justify-content: space-between;
+     }
      ul 
      {
        @include styles.custom-padding;
@@ -20,7 +41,7 @@
        list-style: none;
        li 
        {
-         padding: 12px;
+         @include styles.custom-padding(8px,12px);
          width:150px;
          border-bottom: 2px solid rgb(233, 233, 233);
          @include styles.commonFontStyle600($fontColor:rgb(89, 89, 89),$fontSize:20px);

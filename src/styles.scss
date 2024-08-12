@@ -119,6 +119,8 @@ $light-white:var(--light-white, #fff);
 body 
 {
   @include custom-margin;
+  width:100vw;
+  overflow-x: hidden;
 }
 button 
 {

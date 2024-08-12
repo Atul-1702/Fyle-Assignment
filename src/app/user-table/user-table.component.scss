@@ -80,6 +80,10 @@ main
       @extend .commonButtonStyleBgGray;
       @include styles.custom-padding(8px,8px);
       border-radius: 5px;
+      fa-icon 
+      {
+         margin-top: 1.5px;
+      }
    }
    select 
    {

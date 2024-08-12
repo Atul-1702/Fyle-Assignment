@@ -12,10 +12,12 @@
     background: styles.$light-white;
     @media (width<768px)
     {
-      width: 100%;
+      width: 98%;
       @include styles.custom-padding;
       @include styles.padding-y(24px);
       @include styles.padding-x(8px);
+      overflow-x: hidden;
+      left: 0;
     }
     #filter-cancel {
       display: flex;

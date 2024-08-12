@@ -4,6 +4,6 @@
     <li [ngStyle]="{backgroundColor:i==selectedIndex?'darkOrange':'rgb(244, 244, 244)'}" *ngFor="let user of allUserList let i=index" (click)="getChart1Data(i)">{{user.name}}</li>
 </ul>
 <div id="canvas-container">
-<canvas #chart height="400px" width="400px"></canvas>
+<canvas #chart height="400px"></canvas>
 </div>
 </section>
